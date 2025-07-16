@@ -1,0 +1,150 @@
+/* static/css/dashboard.css */
+
+/* You can customize Bootstrap overrides or add your own styles here */
+/* dashboard.css */
+
+body {
+  background-color: pink;
+  color: #f9fafb;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #1f2937 !important; /* dark navy sidebar/navbar */
+}
+
+.navbar-brand {
+  font-weight: 700;
+  color: #06b6d4 !important; /* bright cyan */
+}
+
+.navbar-text {
+  color: #d1d5db !important; /* light gray */
+}
+
+.btn-outline-light {
+  color: #06b6d4;
+  border-color: #06b6d4;
+}
+
+.btn-outline-light:hover {
+  background-color: #06b6d4;
+  color: #121212;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+h3 {
+  color: #f9fafb;
+}
+
+.btn-success {
+  background-color: #06b6d4;
+  border-color: #06b6d4;
+  color: #121212;
+}
+
+.btn-success:hover {
+  background-color: #0e7490;
+  border-color: #0e7490;
+  color: #fff;
+}
+
+.btn-outline-secondary {
+  color: #06b6d4;
+  border-color: #06b6d4;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #06b6d4;
+  color: #121212;
+  border-color: #06b6d4;
+}
+
+.btn-outline-danger {
+  color: #dc2626;
+  border-color: #dc2626;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc2626;
+  color: white;
+  border-color: #dc2626;
+}
+
+.table {
+  color: #f9fafb;
+  border-color: #334155;
+  background-color: #1e293b;
+}
+
+.table-primary {
+  background-color: #334155;
+  color: #06b6d4;
+}
+
+.table th,
+.table td {
+  border-color: #475569;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #0f172a;
+}
+
+.alert {
+  background-color: #334155;
+  color: #f9fafb;
+  border-color: #475569;
+}
+
+.btn-warning {
+  background-color: #f59e0b;
+  border-color: #f59e0b;
+  color: #121212;
+}
+
+.btn-warning:hover {
+  background-color: #b45309;
+  border-color: #b45309;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #dc2626;
+  border-color: #dc2626;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #991b1b;
+  border-color: #991b1b;
+}
+
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.85rem;
+}
+
+.table-primary {
+  background-color: #cfe2ff;
+  color: #084298;
+}
+
+input.form-control {
+  max-width: 350px;
+}

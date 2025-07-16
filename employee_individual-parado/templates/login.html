@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Login - Billionaire Edition{% endblock %}
+
+{% block content %}
+<div class="billionaire-hero">
+  <div class="billionaire-overlay">
+    <div class="billionaire-container">
+      <h2 class="text-gold mb-4">Welcome Back</h2>
+      <form method="POST" class="billionaire-form">
+        <div class="mb-3">
+          <input type="email" name="email" class="form-control billionaire-input" placeholder="Email Address" required />
+        </div>
+        <div class="mb-3">
+          <input type="password" name="password" class="form-control billionaire-input" placeholder="Password" required />
+        </div>
+        <button class="btn billionaire-btn w-100">Login</button>
+        <p class="mt-3 text-light">Don’t have an account? <a href="/signup" class="text-gold">Sign Up</a></p>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

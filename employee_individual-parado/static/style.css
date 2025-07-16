@@ -1,0 +1,181 @@
+.billionaire-hero {
+    height: 100vh;
+    background: linear-gradient(120deg, #0d0d0d, #1c1c1c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.billionaire-overlay {
+    background: rgba(0,0,0,0.7);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.billionaire-container {
+    max-width: 400px;
+    background: #111;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(255,215,0,0.3);
+    text-align: center;
+}
+
+.billionaire-container h2 {
+    color: #ffd700;
+    font-weight: 600;
+}
+
+.billionaire-form .billionaire-input {
+    background: #333;
+    border: none;
+    color: #fff;
+}
+
+.billionaire-form .billionaire-input::placeholder {
+    color: #aaa;
+}
+
+.billionaire-btn {
+    background: linear-gradient(90deg, #d4af37, #b8860b);
+    color: #111;
+    font-weight: bold;
+    border: none;
+}
+
+.billionaire-btn:hover {
+    background: linear-gradient(90deg, #b8860b, #d4af37);
+    color: #fff;
+}
+
+.text-gold {
+    color: #ffd700;
+}
+.billionaire-dashboard {
+    background: #111;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(255,215,0,0.3);
+    color: #fff;
+}
+
+.billionaire-dashboard h2 {
+    color: #ffd700;
+    font-weight: 600;
+}
+
+.billionaire-table {
+    color: #fff;
+    background-color: #222;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.billionaire-table thead {
+    background: linear-gradient(90deg, #b8860b, #d4af37);
+    color: #111;
+}
+
+.billionaire-table tbody tr td {
+    vertical-align: middle;
+}
+
+.billionaire-input {
+    background: #333;
+    border: none;
+    color: #fff;
+}
+
+.billionaire-input::placeholder {
+    color: #aaa;
+}
+
+.btn-outline-gold {
+    border: 1px solid #ffd700;
+    color: #ffd700;
+}
+
+.btn-outline-gold:hover {
+    background: #ffd700;
+    color: #111;
+}
+/* ---------- Edit Employee Page Styles ---------- */
+
+.edit-hero {
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(120deg, #0d0d0d, #1c1c1c);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-container {
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+}
+
+.edit-container h2 {
+    color: #ffd700;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.edit-form {
+    background: #111;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+    color: #fff;
+}
+
+.edit-form .form-label {
+    color: #ffd700;
+    font-weight: 600;
+}
+
+.edit-form input {
+    background: #333;
+    border: none;
+    color: #fff;
+}
+
+.edit-form input::placeholder {
+    color: #aaa;
+}
+
+.edit-form .btn-success {
+    background: linear-gradient(90deg, #d4af37, #b8860b);
+    color: #111;
+    font-weight: bold;
+    border: none;
+}
+
+.edit-form .btn-success:hover {
+    background: linear-gradient(90deg, #b8860b, #d4af37);
+    color: #fff;
+}
+
+.edit-form .btn-secondary {
+    background: transparent;
+    border: 1px solid #ffd700;
+    color: #ffd700;
+}
+
+.edit-form .btn-secondary:hover {
+    background: #ffd700;
+    color: #111;
+}

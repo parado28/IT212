@@ -1,0 +1,5 @@
+DB_HOST = 'localhost'
+DB_USER = 'root'
+DB_PASSWORD = ''
+DB_NAME = 'parado'
+SECRET_KEY = '766466'
