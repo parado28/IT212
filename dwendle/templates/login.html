@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <script>
+    function togglePassword() {
+      const pwdInput = document.getElementById('password');
+      const icon = document.getElementById('togglePwdIcon');
+      if (pwdInput.type === 'password') {
+        pwdInput.type = 'text';
+        icon.textContent = '🙈';
+      } else {
+        pwdInput.type = 'password';
+        icon.textContent = '👁️';
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="login-card">
+    <h2>Login</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">{{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <form method="post" novalidate>
+      <div class="form-group">
+        <span class="input-icon">👤</span>
+        <input type="text" name="username" class="form-control" placeholder="Email" required autofocus />
+      </div>
+      <div class="form-group" style="margin-bottom: 10px;">
+        <span class="input-icon">🔒</span>
+        <input id="password" type="password" name="password" class="form-control" placeholder="Password" required />
+        <span id="togglePwdIcon" class="password-toggle" onclick="togglePassword()">👁️</span>
+      </div>
+      <a href="#" class="forgot-link">Forgot your password?</a>
+      <button type="submit" class="btn btn-login">LOGIN</button>
+    </form>
+    <div class="signup-text">
+      No account? <a href="{{ url_for('signup') }}">Sign up here</a>
+    </div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

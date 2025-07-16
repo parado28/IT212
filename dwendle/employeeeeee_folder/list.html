@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Team Members</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      margin: 0;
+      padding: 40px 20px;
+      color: #6a1b9a;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ad1457;
+      margin-bottom: 25px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: auto;
+      background-color: #ffffff;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(173, 20, 87, 0.1);
+    }
+
+    .form-area {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .input-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .input-group input {
+      flex: 1 1 20%;
+      padding: 8px;
+      font-size: 13px;
+      border: 1px solid #f8bbd0;
+      border-radius: 5px;
+      background-color: #fff7fb;
+    }
+
+    .input-group button {
+      background-color: #ec407a;
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .input-group button:hover {
+      background-color: #d81b60;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #f8bbd0;
+    }
+
+    th {
+      background-color: #fce4ec;
+      color: #880e4f;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fff7fb;
+    }
+
+    .delete-btn {
+      background-color: #f06292;
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: background 0.3s;
+    }
+
+    .delete-btn:hover {
+      background-color: #c2185b;
+    }
+
+    @media (max-width: 600px) {
+      .input-group {
+        flex-direction: column;
+      }
+
+      .input-group button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Team Members Employee</h1>
+
+  <div class="container">
+    <!-- FORM TOP -->
+    <div class="form-area">
+      <div class="input-group">
+        <input type="text" id="empId" placeholder="Employee ID" />
+        <input type="text" id="lastName" placeholder="Last Name" />
+        <input type="text" id="position" placeholder="Position" />
+        <input type="text" id="office" placeholder="Office" />
+        <button onclick="addEmployee()">Add</button>
+      </div>
+    </div>
+
+    <!-- TABLE BELOW -->
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Last Name</th>
+          <th>Position</th>
+          <th>Office</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="employeeTable">
+        <!-- Rows appear here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", loadEmployees);
+
+    function addEmployee() {
+      const empId = document.getElementById("empId").value.trim();
+      const lastName = document.getElementById("lastName").value.trim();
+      const position = document.getElementById("position").value.trim();
+      const office = document.getElementById("office").value.trim();
+
+      if (!empId || !lastName || !position || !office) {
+        alert("Please fill out all fields.");
+        return;
+      }
+
+      const employee = { empId, lastName, position, office };
+      const employees = JSON.parse(localStorage.getItem("teamList")) || [];
+      employees.push(employee);
+      localStorage.setItem("teamList", JSON.stringify(employees));
+
+      loadEmployees();
+      document.getElementById("empId").value = "";
+      document.getElementById("lastName").value = "";
+      document.getElementById("position").value = "";
+      document.getElementById("office").value = "";
+    }
+
+    function loadEmployees() {
+      const employees = JSON.parse(localStorage.getItem("teamList")) || [];
+      const tbody = document.getElementById("employeeTable");
+      tbody.innerHTML = "";
+
+      employees.forEach((emp, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${emp.empId}</td>
+          <td>${emp.lastName}</td>
+          <td>${emp.position}</td>
+          <td>${emp.office}</td>
+          <td><button class="delete-btn" onclick="deleteEmployee(${index})">Delete</button></td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    function deleteEmployee(index) {
+      const employees = JSON.parse(localStorage.getItem("teamList")) || [];
+      employees.splice(index, 1);
+      localStorage.setItem("teamList", JSON.stringify(employees));
+      loadEmployees();
+    }
+  </script>
+
+</body>
+</html>

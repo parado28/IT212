@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard - Employees</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}" />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="{{ url_for('dashboard') }}">Employee System</a>
+    <div class="d-flex">
+      <span class="navbar-text me-3 text-white">Logged in as {{ session.admin_username }}</span>
+      <a href="{{ url_for('logout') }}" class="btn btn-outline-light btn-sm">Logout</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container my-4">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">{{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+  {% endwith %}
+
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>Employees</h3>
+    <a href="{{ url_for('add_employee') }}" class="btn btn-success">Add Employee</a>
+  </div>
+
+  <form method="get" action="{{ url_for('dashboard') }}" class="input-group mb-3">
+    <input type="text" name="search" value="{{ search }}" class="form-control" placeholder="Search by name or email" />
+    <button class="btn btn-outline-secondary" type="submit">Search</button>
+    <a href="{{ url_for('export_pdf') }}" class="btn btn-outline-danger ms-2">Export PDF</a>
+  </form>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle">
+      <thead class="table-primary">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Position</th>
+          <th>Salary</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% if employees %}
+        {% for emp in employees %}
+          <tr>
+            <td>{{ emp[0] }}</td>
+            <td>{{ emp[1] }}</td>
+            <td>{{ emp[2] }}</td>
+            <td>{{ emp[3] }}</td>
+            <td>{{ emp[4] }}</td>
+            <td>${{ "%.2f"|format(emp[5]) }}</td>
+            <td>
+              <a href="{{ url_for('edit_employee', id=emp[0]) }}" class="btn btn-sm btn-warning">Edit</a>
+              <form method="post" action="{{ url_for('delete_employee', id=emp[0]) }}" style="display:inline-block;" onsubmit="return confirm('Delete this employee?');">
+                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+          <td colspan="7" class="text-center">No employees found.</td>
+        </tr>
+      {% endif %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

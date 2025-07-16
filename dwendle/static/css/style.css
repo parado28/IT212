@@ -1,0 +1,126 @@
+/* static/css/style.css */
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #ff6a88, #ff99ac);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-card, .signup-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(255, 105, 135, 0.3);
+  width: 350px;
+  padding: 30px 35px;
+  position: relative;
+  overflow: hidden;
+}
+
+.signup-card {
+  width: 380px;
+}
+
+.login-card::before, .signup-card::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 150px;
+  height: 150px;
+  background: #ff6a88;
+  border-radius: 50%;
+  filter: blur(70px);
+  z-index: 0;
+}
+
+.login-card h2, .signup-card h2 {
+  color: #ff476f;
+  font-weight: 700;
+  text-align: right;
+  margin-bottom: 35px;
+  position: relative;
+  z-index: 1;
+}
+
+.form-control {
+  border-radius: 10px;
+  border: 1.5px solid #ddd;
+  padding-left: 45px;
+  height: 45px;
+  font-size: 15px;
+}
+
+.form-control:focus {
+  border-color: #ff476f;
+  box-shadow: 0 0 8px #ff476f50;
+  outline: none;
+}
+
+.input-icon {
+  position: absolute;
+  left: 15px;
+  top: 12px;
+  font-size: 18px;
+  color: #ff476f80;
+  z-index: 2;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.btn-login, .btn-signup {
+  width: 100%;
+  background: #ff476f;
+  border: none;
+  border-radius: 10px;
+  height: 45px;
+  font-weight: 600;
+  color: white;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-login:hover, .btn-signup:hover {
+  background: #e04062;
+}
+
+.forgot-link {
+  font-size: 13px;
+  color: #ff476f;
+  text-decoration: none;
+  float: right;
+  margin-top: -18px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.signup-text, .login-text {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.signup-text a, .login-text a {
+  color: #ff476f;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 15px;
+  top: 12px;
+  cursor: pointer;
+  color: #ff476f80;
+  font-size: 18px;
+  z-index: 2;
+}

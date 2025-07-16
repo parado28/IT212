@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employee Directory</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #eef6f8;
+      margin: 0;
+      padding: 40px 20px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00796b;
+      margin-bottom: 30px;
+      background: #b2dfdb;
+      display: inline-block;
+      padding: 10px 25px;
+      border-radius: 8px;
+    }
+
+    .container {
+      max-width: 900px;
+      background: #fff;
+      margin: auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .form-group input {
+      flex: 1 1 20%;
+      min-width: 150px;
+      padding: 10px;
+      font-size: 15px;
+      border: 1px solid #b0bec5;
+      border-radius: 6px;
+      outline-color: #26a69a;
+    }
+
+    .form-group button {
+      background: #00796b;
+      color: #fff;
+      border: none;
+      padding: 11px 18px;
+      font-size: 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .form-group button:hover {
+      background: #004d40;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 1px solid #cfd8dc;
+      padding: 10px 12px;
+      text-align: left;
+    }
+
+    th {
+      background: #e0f2f1;
+      color: #00796b;
+    }
+
+    tr:nth-child(even) {
+      background: #f1f8e9;
+    }
+
+    .delete-btn {
+      background: #e53935;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: background 0.3s ease;
+    }
+
+    .delete-btn:hover {
+      background: #b71c1c;
+    }
+
+    @media (max-width: 700px) {
+      .form-group {
+        flex-direction: column;
+      }
+
+      .form-group input,
+      .form-group button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Employee Directory</h1>
+
+  <div class="container">
+    <div class="form-group">
+      <input type="text" id="empId" placeholder="ID (e.g. ST101)" />
+      <input type="text" id="lastName" placeholder="Last Name" />
+      <input type="text" id="position" placeholder="Position" />
+      <input type="text" id="office" placeholder="Office" />
+      <button onclick="addEmployee()">Add</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Last Name</th>
+          <th>Position</th>
+          <th>Office</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="employeeList">
+        <!-- Employee rows appear here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function addEmployee() {
+      const empId = document.getElementById("empId").value.trim();
+      const lastName = document.getElementById("lastName").value.trim();
+      const position = document.getElementById("position").value.trim();
+      const office = document.getElementById("office").value.trim();
+
+      if (!empId || !lastName || !position || !office) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      const table = document.getElementById("employeeList");
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+        <td>${empId}</td>
+        <td>${lastName}</td>
+        <td>${position}</td>
+        <td>${office}</td>
+        <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+      `;
+
+      table.appendChild(row);
+
+      document.getElementById("empId").value = "";
+      document.getElementById("lastName").value = "";
+      document.getElementById("position").value = "";
+      document.getElementById("office").value = "";
+    }
+
+    function deleteRow(button) {
+      const row = button.closest("tr");
+      row.remove();
+    }
+  </script>
+</body>
+</html>

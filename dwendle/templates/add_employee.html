@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/m.css') }}">
+{% endblock %}
+
+{% block content %}
+<h3>Add Employee</h3>
+<form method="POST">
+    <div class="mb-3">
+        <label>Name</label>
+        <input type="text" name="name" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Position</label>
+        <input type="text" name="position" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Salary</label>
+        <input type="number" name="salary" class="form-control" step="0.01" required>
+    </div>
+    <button class="btn btn-success">Add Employee</button>
+</form>
+{% endblock %}

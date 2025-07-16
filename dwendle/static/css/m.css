@@ -1,0 +1,77 @@
+/* Add Employee form styling with pink color scheme */
+
+body {
+  background-color: pink;
+  color: #f9fafb;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #1f2937 !important; /* dark navy sidebar/navbar */
+}
+
+.navbar-brand {
+  font-weight: 700;
+  color: #06b6d4 !important; /* bright cyan */
+}
+
+.navbar-text {
+  color: #d1d5db !important; /* light gray */
+}
+
+h3 {
+  color: #f9fafb; /* white-ish */
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+form {
+  background-color: #1e293b; /* dark blue-gray background */
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3); /* subtle pink glow */
+}
+
+label {
+  color: #f9a8d4; /* soft pink */
+  font-weight: 600;
+}
+
+input.form-control {
+  background-color: #121212; /* very dark */
+  border: 1.5px solid #f472b6; /* medium pink border */
+  color: #f9fafb; /* white text */
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+input.form-control:focus {
+  background-color: #c6568a; /* slightly lighter background on focus */
+  border-color: #ec4899; /* bright pink border on focus */
+  box-shadow: 0 0 8px #f43f5e; /* pink glow */
+  color: #f9fafb;
+  outline: none;
+}
+
+button.btn-success {
+  background-color: #ec4899; /* bright pink */
+  border-color: #ec4899;
+  color: #fff;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+}
+
+button.btn-success:hover {
+  background-color: #be185d; /* darker pink on hover */
+  border-color: #be185d;
+  color: #fff;
+  box-shadow: 0 0 12px #f43f5e;
+}
+
+.mb-3 {
+  margin-bottom: 1rem !important;
+}
