@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Demo</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <style>
+        .custom-box {
+            background: gray;
+            color: gold;
+            border-width: 5px;
+            border-style: solid;
+            border-color: lightgreen;
+        }
+
+        .headline {
+            font-size: 100px;
+            border: solid 10px deepskyblue;
+        }
+
+        .black-font {
+            color: black;
+        }
+
+        .bg-success {
+            background: green;
+        }
+
+        .text-giant {
+            font-size: 150px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Inline styling box -->
+    <div style="color:green; background: pink;">
+        <p style="font-size: 50px;">This is Inline CSS</p>
+    </div>
+
+    <!-- Internal CSS styling box -->
+    <div class="custom-box">
+        <p class="headline">This is Internal CSS</p>
+    </div>
+
+    <!-- External CSS styling imitation -->
+    <div>
+        <p class="headline black-font bg-success text-giant">This is External CSS</p>
+    </div>
+</body>
+</html>
